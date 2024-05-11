@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 public class MentorEntity {
 
     @Id
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;

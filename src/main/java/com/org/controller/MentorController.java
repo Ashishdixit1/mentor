@@ -1,6 +1,7 @@
 package com.org.controller;
 
 import com.org.model.MentorDTO;
+import com.org.model.MentorDetail;
 import com.org.service.MentorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,10 +30,18 @@ public class MentorController
     return mentorService.updateMentorDTO(mentorDTO ,id);
    }
 
-   @DeleteMapping("mentor/id")
+   @DeleteMapping("mentor/{id}")
     public  MentorDTO deleteMentorById(@PathVariable Integer id){
         mentorService.deleteMentorById(id);
         return null;
    }
+
+   @GetMapping("/mentor/name/{name}")
+    MentorDetail getMentorByName(@PathVariable String name){
+      return   mentorService.getMentorByName(name);
+   }
+
+
+
 
 }

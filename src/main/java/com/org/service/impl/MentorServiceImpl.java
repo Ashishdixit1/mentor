@@ -3,6 +3,8 @@ package com.org.service.impl;
 import com.org.Entity.MentorEntity;
 import com.org.Entity.MentorshipdetailEntity;
 import com.org.model.MentorDTO;
+import com.org.model.MentorDetail;
+import com.org.repository.MentorRepo;
 import com.org.repository.MentorRepository;
 import com.org.service.MentorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ public class MentorServiceImpl implements MentorService {
 
     @Autowired
     MentorRepository mentorRepository;
+
+    @Autowired
+    MentorRepo mentorRepo;
 
 
     @Override
@@ -61,5 +66,10 @@ public class MentorServiceImpl implements MentorService {
     public MentorDTO deleteMentorById(Integer id) {
         mentorRepository.deleteById(id);
         return null;
+    }
+
+    @Override
+    public MentorDetail getMentorByName(String name) {
+     return mentorRepo.getMentorByName(name);
     }
 }
